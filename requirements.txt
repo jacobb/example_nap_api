@@ -1,0 +1,2 @@
+django==1.4.1
+git+https://github.com/toastdriven/django-tastypie.git
