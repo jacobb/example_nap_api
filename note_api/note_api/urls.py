@@ -1,11 +1,14 @@
 from django.conf.urls import patterns, include
 
-# from cocktail.api import CocktailResource
-from notes.api import NoteResource
+from tastypie.api import Api
 
+from notes.api import NoteResource, AuthorResource
 
-note_resource = NoteResource()
+v1_api = Api(api_name='v1')
+v1_api.register(NoteResource())
+v1_api.register(AuthorResource())
+
 
 urlpatterns = patterns('',
-    (r'api/', include(note_resource.urls)),
+    (r'api/', include(v1_api.urls)),
 )
